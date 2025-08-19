@@ -1,0 +1,186 @@
+// ==== Lista de productos ====
+const products = [
+  // 10 relojes
+  { id: 1, type: 'relojes', title: 'Rolex Submariner', desc: 'Reloj de buceo icónico, resistente hasta 300m, caja de acero inoxidable y bisel cerámico.', price: 55000, img: 'https://casabanchero.com/rolex/img-rolex/watches-models/m126613lb-0002-drp-upright-bba-with-shadow-landscape.webp' },
+  { id: 2, type: 'relojes', title: 'Omega Seamaster', desc: 'Elegancia y precisión suiza, con cronógrafo y resistencia al agua para aventuras marinas.', price: 32000, img: 'https://i5.walmartimages.com/seo/Omega-Seamaster-Aqua-Terra-Blue-Dial-Men-s-Watch-231-10-42-21-03-001_b75d995e-4bfa-48da-9a3c-aeed298d3e59.3087a21af2b91876d7a489553178486b.jpeg' },
+  { id: 3, type: 'relojes', title: 'Tag Heuer Carrera', desc: 'Diseño deportivo y sofisticado, con cronómetro y esfera luminosa para máxima visibilidad.', price: 10500, img: 'https://www.tagheuer.com/on/demandware.static/-/Sites-tagheuer-master/default/dw32fc2e80/TAG_Heuer_Carrera/WDA2112.BA0043/WDA2112.BA0043_0913.png' },
+  { id: 4, type: 'relojes', title: 'Tissot PRC 200', desc: 'Reloj versátil con estilo clásico, resistente al agua y cronógrafo preciso para cualquier ocasión.', price:  5000, img: 'https://assets.tissotwatches.com/transform/Extend/e5d8f117-b5b1-4b99-9b56-af8edb0d465c/T114_417_17_057_00' },
+  { id: 5, type: 'relojes', title: 'Casio G-Shock', desc: 'Durabilidad extrema y resistencia a golpes, perfecto para uso diario y deportes extremos.', price: 15000, img: 'https://m.media-amazon.com/images/I/61V+iFk8xfL._AC_SL1102_.jpg' },
+  { id: 6, type: 'relojes', title: 'Seiko Prospex', desc: 'Innovación japonesa en relojes de buceo con tecnología automática y diseño robusto.', price: 6500, img: 'https://cdn11.bigcommerce.com/s-f06f69/images/stencil/1280x1280/products/14799/62644/SPB383J1-sitecore__85821.1678276708.png?c=2' },
+  { id: 7, type: 'relojes', title: 'Fossil Grant Chronograph', desc: 'Estilo vintage con función cronógrafo y correa de cuero genuino, ideal para un look casual.', price: 9800, img: 'https://es.watchesofamerica.com/cdn/shop/products/fossil-grant-chronograph-dark-blue-dial-smoke-ionplated-watch-fs4831.jpg?v=1685316506' },
+  { id: 8, type: 'relojes', title: 'Citizen Eco-Drive', desc: 'Alimentado por luz, sin necesidad de batería, con diseño moderno y alta precisión.', price: 12000, img: 'https://citizenwatch.widen.net/content/tobd6aeyhc/webp/PCAT.webp?u=41zuoe&width=400&height=400&quality=80&crop=false&keep=c&color=f9f8f6' },
+  { id: 9, type: 'relojes', title: 'Hamilton Khaki Field', desc: 'Inspiración militar con esfera clara, resistente y confiable para uso en campo abierto.', price:  9800, img: 'https://www.reeds.com/media/catalog/product/cache/38c3c1b8e53ef11aa9803a5390245afc/h/a/hamilton_khaki_field_quartz_black_dial_black_nato_strap_watch_38mm-h69401430-1-20487799-hxbde2f85a_1.jpg' },
+  { id: 10, type: 'relojes', title: 'Bulova Classic Automatic', desc: 'Movimiento automático, diseño elegante con detalles en acero inoxidable y esfera transparente.', price: 14000, img: 'https://au.bulova.com/cdn/shop/files/96A319copy2.jpg?v=1723159645' },
+
+  // 10 perfumes
+  { id: 1, type: 'perfumes', title: 'Jean Paul-Gaultier', desc: 'Fragancia fresca y vibrante con notas tropicales de mango, flor de loto y jazmín, que evocan un jardín paradisíaco y relajante.', price:  4500, img: 'https://static.sweetcare.com/img/prd/488/v-638513009366703911/jean-paul-gaultier-021177jg-3.webp' },
+  { id: 2, type: 'perfumes', title: 'Creed Aventus', desc: 'Fragancia icónica y sofisticada, con notas frutales de piña y bergamota, combinadas con almizcle y madera de roble, ideal para el hombre seguro y elegante.', price: 15000, img: 'https://www.creedfragrances.co.uk/cdn/shop/articles/aventus_06a2948a-c5cd-4e14-9c62-27f7459d1a47.jpg?v=1738251628' },
+  { id: 3, type: 'perfumes', title: 'Chanel No.5', desc: 'La icónica fragancia floral aldehídica que combina jazmín, rosa, ylang-ylang y un toque de vainilla, símbolo de elegancia y sofisticación atemporal.', price: 4500, img: 'https://hips.hearstapps.com/hmg-prod/images/chanel-no5-jasmine-blossoms-65733cf5500ff.jpg?crop=0.888888888888889xw:1xh;center,top&resize=1200:*' },
+  { id: 4, type: 'perfumes', title: 'Dior Sauvage', desc: 'Aroma fresco y poderoso, mezcla de bergamota, pimienta y ambroxan.', price: 5200, img: 'https://hips.hearstapps.com/hmg-prod/images/f094-sauvage-eau-forte-24-p06e-pack-ingredient-l4-f39-66bcb885a1660.jpg' },
+  { id: 5, type: 'perfumes', title: 'Tom Ford Noir', desc: 'Aroma intenso y sofisticado, con notas especiadas y de ámbar.', price: 6500, img: 'https://priveperfumes.com/cdn/shop/files/perfume-tom-ford-noir-extreme-parfum-m-100-ml-5-prive-perfumes.webp?v=1738142397&width=1280' },
+  { id: 6, type: 'perfumes', title: 'Versace Eros', desc: 'Fragancia vibrante y energética, con menta, manzana verde y vainilla.', price: 3600, img: 'https://perfumescolombia.com.co/cdn/shop/products/versace-eros-edt-11-premium-9326781.jpg?v=1751884243' },
+  { id: 7, type: 'perfumes', title: 'Gucci Bloom', desc: 'Fragancia floral y fresca que captura la esencia de un jardín en plena primavera, con notas de jazmín, nardos', price: 1350, img: 'https://fimgs.net/himg/o.tpxMmVLIRS8.jpg' },
+  { id: 8, type: 'perfumes', title: 'Hermès Terre', desc: 'Fragancia terrosa y cítrica que mezcla notas de naranja, pimienta y vetiver, perfecta para un hombre elegante y conectado con la naturaleza.', price: 1450, img: 'https://francegallery.me/wp-content/uploads/2023/02/HERMES-TERRE-DHERMES-EAU-GIVREE-WALL.png' },
+  { id: 9, type: 'perfumes', title: 'Yves Saint Laurent La Nuit', desc: 'Perfume misterioso y sensual, con bergamota, pimienta y lavanda.', price: 4200, img: 'https://felix.com.pa/cdn/shop/files/69-90061_4_1200x.png?v=1704998435' },
+  { id: 10, type: 'perfumes', title: 'Burberry London', desc: 'Fragancia cálida y amaderada, con notas de canela, tabaco y cuero, que evoca la sofisticación urbana y el estilo clásico británico.', price: 1400, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZP3xEy1xop0fh-KemID7jvmpmcM3xrn5lQ&s' },
+
+  // 10 zapatos
+  { id: 'z1', type: 'zapatos', title: 'Nike Dunk Low Retro', desc: 'Zapas clásicas que nunca fallan, con colores que reventan y confort para todo el día. Perfectas para armar looks street cool.', price: 1800, img: 'https://www.thedarksideinitiative.com/cdn/shop/articles/Nike-DunkLow-TeamRed-IG-1.jpg?v=1647885445' },
+  { id: 'z2', type: 'zapatos', title: 'Adidas Yeezy Boost 350 V2', desc: 'Las más hype con la mejor amortiguación, un estilo futurista que hace que todos volteen a verte.', price: 2300, img: 'https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F11%2Fadidas-yeezy-boost-350-v2-pirate-black-non-reflective-stockx-tw.jpg?w=1080&cbr=1&q=90&fit=max' },
+  { id: 'z3', type: 'zapatos', title: 'Balenciaga Triple S', desc: 'Las chunky que están en todas, con un look brutal y pesado que grita “soy moda pura”.', price: 1700, img: 'https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F01%2Fbalenciaga-triple-s-china-factory-move-tw.jpg?w=960&cbr=1&q=90&fit=max' },
+  { id: 'z4', type: 'zapatos', title: 'Air Jordan 1 High OG', desc: 'Legendarias, con cuero top y ese flow que no pasa de moda. Perfectas para marcar territorio.', price: 2600, img: 'https://www.kickgame.co.uk/cdn/shop/products/air-jordan-1-retro-high-og-black-royal-white-555088-007_6.jpg?v=1659088275&width=1024' },
+  { id: 'z5', type: 'zapatos', title: 'Off-White x Nike Air Presto', desc: 'Colaboración que rompe esquemas, con etiquetas cool y diseño que nadie más tiene.', price: 1100, img: 'https://i.pinimg.com/736x/0d/c6/9e/0dc69e824efe71b71d56781b3324bf3b.jpg' },
+  { id: 'z6', type: 'zapatos', title: 'Jordan Retro 4', desc: 'Zapatillas legendarias con diseño icónico de los 90, combinan tecnología Air y detalles en cuero para un estilo atemporal y rendimiento superior.', price: 2400, img: 'https://www.dtlr.com/cdn/shop/articles/AQ9129-501_1000x1000.jpg?v=1729196006' },
+  { id: 'z7', type: 'zapatos', title: 'DC x Black Sabbath', desc: 'Zapas con onda rockera y actitud pura, diseño oscuro y resistente para que lleves el estilo heavy metal en cada paso. Perfectas para los que aman la música y el skate.', price: 1600, img: 'https://i.pinimg.com/736x/8a/8d/dc/8a8ddcb6f044cf489175f8b4f9ccf6b1.jpg' },
+  { id: 'z8', type: 'zapatos', title: 'New Balance 550 Vintage', desc: 'Retro pero fresh, con onda clásica que nunca falla para cualquier plan.', price: 2000, img: 'https://cdn.sanity.io/images/d6wcctii/production/0f386b58b24ff2f6d2836236c1c8e0658f27ad60-1070x760.jpg' },
+  { id: 'z9', type: 'zapatos', title: 'Jordan Retro 1', desc: 'El clásico que nunca pasa de moda, con cuero suave y ese estilo que te hace destacar en la calle. Perfectas para armar cualquier outfit fresh y con flow.', price: 1800, img: 'https://media.revistagq.com/photos/5d6903a8f1043a000920ed7f/16:9/w_1280,c_limit/airjordan.jpg' },
+  { id: 'z10', type: 'zapatos', title: 'Nike Air Max 270', desc: 'Zapas clásicas que nunca fallan, con colores que reventan y confort para todo el día. Perfectas para armar looks street cool.', price: 1900, img: 'https://cms-cdn.thesolesupplier.co.uk/2018/09/270-1.jpg.webp' },
+
+
+  // 10 hoodies
+  { id: h1, type: 'hoodies', title: 'Nike Sportswear Club Fleece', desc: 'Súper cómoda y calentita, perfecta para esos días chill o para entrenar con estilo sin perder la onda.', price: 900, img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/8420ae76-0d25-4938-a0ed-9b82e6aef6b1/AS+M+NK+TCH+FLC+GX+PO+HOODIE.png' },
+  { id: 'h2', type: 'hoodies', title: 'Nike Tech Fleece Pullover', desc: 'Hoodie techy que te mantiene calientito y ligero, ideal para lucir fresh en la calle o en el gym.', price: 850, img: 'https://i5.walmartimages.com/seo/Nike-Sportswear-Club-Fleece-Full-Zip-Hoodie-Black-Black-White-BV2645-010-Men-s-Size-M-Standard-Fit_e98c7f43-7fbf-4a7f-89b0-c91e685a01c5.b482280ccb7a3fc5ee95b7a0005c707b.jpeg' },
+  { id: 'h3', type: 'hoodies', title: 'Nike Dri-FIT Training Hoodie', desc: 'Diseño sporty con tecnología que absorbe el sudor, para que rindas al máximo sin perder el estilo.', price: 920, img: 'https://www.nencinisport.it/images/width-def/background-def/format-def/end/articoli/nike-dri-fit-full-zip-training-hoodie-nike-485042-dettaglio.png' },
+  { id: 'h4', type: 'hoodies', title: 'Nike Air Hoodie', desc: 'Clásica con logo grande y vibra urbana, ideal para combinar con cualquier outfit casual.', price: 880, img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/9c158ea5-a1df-4bc0-8460-03abde46c118/M+NIKE+AIR+FLC+PO+HOODIE+BFT.png' }, 
+  { id: 'h5', type: 'hoodies', title: 'Nike Therma Hoodie', desc: 'Calentita y resistente, perfecta para el frío sin perder el flow moderno.', price: 870, img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/c013660a-93fe-48eb-bd2f-ca731d344905/M+NK+TF+HD+FZ.png' },
+  { id: 'h6', type: 'hoodies', title: 'Adidas Essentials 3-Stripes Hoodie', desc: 'Básica pero con actitud, las tres rayas que todos aman y mucha comodidad para el día a día.', price: 890, img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/1e3d46decb884a218d19b749e8659c5d_9366/Essentials_3-Stripes_Fleece_Hoodie_Grey_JD1865_21_model.jpg' },
+  { id: 'h7', type: 'hoodies', title: 'Adidas Originals Trefoil Hoodie', desc: 'Hoodie retro con el logo icónico, para que tengas ese look vintage pero fresh.', price: 910, img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/bc365e4b823146c39befa95101256107_9366/Trefoil_Hoodie_Black_DV2870_01_laydown.jpg' },
+  { id: 'h8', type: 'hoodies', title: 'Adidas Z.N.E. Hoodie', desc: 'Diseñada para concentración y rendimiento, con un estilo minimalista que no pasa desapercibido.', price: 860, img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/7167e74722e0410095fb0ad66a452904_9366/Z.N.E._Hoodie_Grey_JE3070_21_model.jpg' },
+  { id: 'h9', type: 'hoodies', title: 'Adidas Future Icons Hoodie', desc: 'Moderna y versátil, perfecta para entrenar o salir con tus panas con mucho swag.', price: 940, img: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3003d2ce282b4a36894a37ec672e9436_9366/Future_Icons_Badge_of_Sport_Hoodie_Grey_IN3324_21_model.jpg' },
+  { id: 'h10', type: 'hoodies', title: 'Adidas Adicolor Classics Hoodie', desc: 'Todo un clásico renovado, cómodo y con colores que destacan en cualquier lugar.', price: 950, img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/b33438323d994c7fbd08b94bcbdf73a9_9366/Adicolor_Classics_Trefoil_Hoodie_Beige_IZ2359_21_model.jpg' },
+
+  // 10 gorras
+  { id: 'g1', type: 'gorras', title: 'New Era 59FIFTY', desc: 'La clásica de siempre, con estructura rígida y diseño que nunca pasa de moda. Perfecta para cualquier look street.', price: 350, img: 'https://m.media-amazon.com/images/I/61CYMbM3o9L._UY1000_.jpg' },
+  { id: 'g2', type: 'gorras', title: 'Supreme Box Logo Snapback', desc: 'La gorra que grita hype, con logo icónico y ese swag que solo Supreme sabe darle.', price: 400, img: 'https://images-cdn.ubuy.hn/634f19e9a07b37313c497b4b-supreme-new-era-ny-yankees-black-hat-box.jpg' },
+  { id: 'g3', type: 'gorras', title: 'Stüssy Stock Logo Cap', desc: 'Estilo surfero y urbano en una gorra que combina con todo y te lleva directo al flow callejero.', price: 370, img: 'https://www.workingclassheroes.co.uk/images/products/archive/S/St/StckLwProCpBlac2.jpg?width=1998&height=1998&quality=85&mode=pad&format=webp&bgcolor=ffffff' },
+  { id: 'g4', type: 'gorras', title: 'Palace Tri-Ferg Snapback', desc: 'Diseño geométrico y actitud skater, ideal para los que buscan destacar sin esfuerzo.', price: 360, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6k99IF7sJFzXn1rcjHVCN03nCuuMdIsV9Ag&s' },
+  { id: 'g5', type: 'gorras', title: 'BAPE Shark Cap', desc: 'La gorra con diseño de tiburón que rompe esquemas y pone toda la actitud en tu outfit.', price: 380, img: 'https://d3nt9em9l1urz8.cloudfront.net/media/catalog/product/cache/3/image/9df78eab33525d08d6e5fb8d27136e95/a/p/ap1i33180925red-m-1_1.jpg' },
+  { id: 'g6', type: 'gorras', title: 'Off-White Industrial Strap Cap', desc: 'Estilo industrial y moderno, con la icónica cinta amarilla que te hace ver fresh y diferente.', price: 340, img: 'https://img.shopstyle-cdn.com/sim/71/15/7115e416ba76c91374bdcd2f7253aaed_xlarge/mens-helvet-industrial-strap-baseball-cap.jpg' },
+  { id: 'g7', type: 'gorras', title: 'Y-3 Classic Logo Capa', desc: 'Minimalista pero con mucha onda, perfecta para los que aman el estilo sporty-chic.', price: 390, img: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eded6e8c25b24a898ba631bd25b2edb4_9366/Y-3_Classic_Logo_Cap_Black_JP1142_01_00_standard.jpg' },
+  { id: 'g8', type: 'gorras', title: 'Kangol Bermuda Casual Cap', desc: 'Vintage y con clase, la gorra que te da ese toque retro y cool para cualquier ocasión.', price: 410, img: 'https://cdn.shopify.com/s/files/1/0639/6454/5206/files/K3017ST_SCARLET_ff58e029-269e-4838-b887-1254fcfa72f1.jpg?v=1739478350&width=1000' },
+  { id: 'g9', type: 'gorras', title: 'Fear of God Essentials Cap', desc: 'Simple, elegante y súper cómoda, ideal para un look relajado pero con estilo.', price: 330, img: 'https://i.etsystatic.com/17347229/r/il/7a483c/5784445289/il_fullxfull.5784445289_ljba.jpg' },
+  { id: 'g10', type: 'gorras', title: 'Comme des Garçons Play Cap', desc: 'Gorra con corazón icónico y un toque artístico, perfecta para los amantes de la moda con personalidad.', price: 320, img: 'https://images-na.ssl-images-amazon.com/images/I/41OLhJJS7PL.jpg' },
+];
+
+// ==== Variables ====
+const catalog = document.getElementById("catalog");
+const cartBtn = document.getElementById("cartBtn");
+const cartDrawer = document.getElementById("cartDrawer");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const cartCount = document.getElementById("cartCount");
+const toast = document.getElementById("toast");
+
+const filters = document.querySelectorAll(".filters button");
+const search = document.getElementById("search");
+
+let cart = [];
+let currentFilter = "all";
+
+// ==== Renderizar productos ====
+function renderProducts() {
+  catalog.innerHTML = "";
+  let filtered = products.filter(p => currentFilter === "all" || p.category === currentFilter);
+
+  if (search.value.trim() !== "") {
+    filtered = filtered.filter(p => p.name.toLowerCase().includes(search.value.toLowerCase()));
+  }
+
+  if (filtered.length === 0) {
+    document.getElementById("empty").classList.remove("hidden");
+    return;
+  } else {
+    document.getElementById("empty").classList.add("hidden");
+  }
+
+  filtered.forEach(prod => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-media" style="background-image:url('${prod.img}')"></div>
+      <div class="card-body">
+        <h4 class="card-title">${prod.name}</h4>
+        <p class="card-desc">${prod.desc}</p>
+        <div class="meta">
+          <div class="price">Lps. ${prod.price}</div>
+          <button class="info-btn">Más info</button>
+          <button class="add">Agregar</button>
+        </div>
+      </div>
+    `;
+
+    // Botón más info
+    card.querySelector(".info-btn").addEventListener("click", () => {
+      let tallaTxt = prod.sizes.length ? `<p>Tallas disponibles: ${prod.sizes.join(", ")}</p>` : "<p>Sin tallas aplicables</p>";
+      alert(`Producto: ${prod.name}\nDescripción: ${prod.desc}\nPrecio: Lps. ${prod.price}\n${tallaTxt}`);
+    });
+
+    // Botón agregar
+    card.querySelector(".add").addEventListener("click", () => {
+      addToCart(prod);
+      showToast();
+    });
+
+    catalog.appendChild(card);
+  });
+}
+
+// ==== Agregar al carrito ====
+function addToCart(product) {
+  const item = cart.find(p => p.id === product.id);
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCart();
+}
+
+// ==== Actualizar carrito ====
+function updateCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <span>${item.name} x${item.qty}</span>
+      <strong>Lps. ${item.price * item.qty}</strong>
+    `;
+    cartItems.appendChild(div);
+  });
+  cartTotal.textContent = total.toFixed(2);
+  cartCount.textContent = cart.reduce((acc, p) => acc + p.qty, 0);
+}
+
+// ==== Mostrar mensaje agregado ====
+function showToast() {
+  toast.classList.remove("hidden");
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 2000);
+}
+
+// ==== Eventos ====
+cartBtn.addEventListener("click", () => {
+  cartDrawer.classList.remove("hidden");
+});
+closeCart.addEventListener("click", () => {
+  cartDrawer.classList.add("hidden");
+});
+
+filters.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filters.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    renderProducts();
+  });
+});
+
+search.addEventListener("input", renderProducts);
+
+// ==== Inicial ====
+renderProducts();

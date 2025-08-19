@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elegancia — Relojes & Más</title>
+  <link rel="stylesheet" href="P.principalAirbus.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Elegancia</h1>
+      <nav class="nav">
+        <input id="search" class="search" placeholder="Buscar por producto o marca..." />
+        <button id="cartBtn" class="cart-btn">Carrito (<span id="cartCount">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Relojes, perfumes y más que definen tu estilo</h2>
+        <p>Encuentra piezas seleccionadas cuidadosamente: elegancia en tiempo, aroma y moda.</p>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </section>
+
+    <section class="controls">
+      <div class="filters">
+        <button data-filter="all" class="active">Todos</button>
+        <button data-filter="relojes">Relojes</button>
+        <button data-filter="perfumes">Perfumes</button>
+        <button data-filter="zapatos">Zapatos</button>
+        <button data-filter="hoodies">Hoodies</button>
+        <button data-filter="gorras">Gorras</button>
+        <button id="offersBtn">Ofertas (Lps. &lt;1600)</button>
+      </div>
+    </section>
+
+    <section id="catalog" class="grid"></section>
+
+    <section id="empty" class="empty hidden">
+      <p>No se encontraron productos.</p>
+    </section>
+  </main>
+
+  <!-- Carrito -->
+  <aside id="cartDrawer" class="cart-drawer hidden" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Carrito</h3>
+      <button id="closeCart" class="close" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: Lps. <span id="cartTotal">0.00</span></div>
+      <button id="checkoutBtn" class="primary">Pagar</button>
+    </div>
+  </aside>
+
+  <!-- Plantilla producto -->
+  <template id="cardTpl">
+    <article class="card">
+      <div class="card-media"></div>
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-desc"></p>
+        <div class="meta">
+          <div class="price">Lps. <span class="price-val"></span></div>
+          <button class="info">Ver más</button>
+          <button class="add">Agregar</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Mensaje de éxito -->
+  <div id="toast" class="toast hidden">Agregado al carrito con éxito</div>
+
+  <!-- Modal de info -->
+  <div id="infoModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeInfo" class="close">×</span>
+      <h2 id="infoTitle"></h2>
+      <p id="infoDesc"></p>
+      <p><strong>Tallas disponibles:</strong> <span id="infoSizes"></span></p>
+    </div>
+  </div>
+
+  <script src="P.principalAirbus.js"></script>
+</body>
+</html>
